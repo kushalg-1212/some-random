@@ -4,16 +4,16 @@
     gitlab_rails['ldap_servers'] = YAML.load <<-'EOS'
      main: # 'main' is the GitLab 'provider ID' of this LDAP server
       label: 'Active Directory Login'
-      host: 'drdc.domain.com'
+      host: 'tracio.com'
       port: 389
       uid: 'sAMAccountName'
       method: 'plain' # "tls" or "ssl" or "plain"
-      bind_dn: 'CN=Ldap Search,OU=All Accounts,DC=domain,DC=com'
-      password: '12345678'
+      bind_dn: 'CN=Ldap Search,OU=MAIN,DC=tracio,DC=com'
+      password: 'Z3braZLA'
       active_directory: true
       allow_username_or_email_login: false
       block_auto_created_users: false
-      base: 'OU=All Users,DC=domain,DC=com'
+      base: 'OU=MAIN,DC=tracio,DC=com'
       timeout: 10
-      user_filter: '(memberOf=CN=Gitlab Users,OU=All User Groups,DC=domain,DC=com)'
+      user_filter: '(memberOf=CN=GITLAB,OU=MAIN,DC=tracio,DC=com)'
     EOS
